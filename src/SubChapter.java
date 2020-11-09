@@ -1,59 +1,32 @@
 import java.util.ArrayList;
+import java.util.List;
 
-public class SubChapter  {
+public class SubChapter {
     private String name;
+    private List<Element> elements= new ArrayList<Element>();
 
-    private ArrayList<Paragraph> paragraphs = new ArrayList<>();
-    private ArrayList<Table> tables = new ArrayList<>();
-    private ArrayList<Image> images = new ArrayList<>();
-
-
-    SubChapter(String name){
-        this.name = name;
+    public SubChapter (String nameSChapter){
+        this.name = nameSChapter;
     }
+    public void createNewParagraph(String nameParagraph){
+        Paragraph p = new Paragraph(nameParagraph);
+        elements.add(p);
+    }
+    public void createNewTable(String nameTable){
+        Table t = new Table(nameTable);
+        elements.add(t);
+    }
+    public void createNewImage(String nameImage){
+        Image i = new Image(nameImage);
+        elements.add(i);
+    }
+    public void print() {
 
-    public void createNewParagraph(String name){
-        paragraphs.add(new Paragraph(name));
-    }
-    public void createNewImage(String name){
-        images.add(new Image(name));
-    }
-    public void createNewTable(String name){
-        tables.add(new Table(name));
-    }
+        System.out.println("The name of the chapter is: " + this.name);
 
-    public void print(){
-        System.out.println("Subchapter: " + this.name);
-        printImages();
-        printParagraphs();
-        printTables();
-    }
-
-    private void printParagraphs(){
-        for(Paragraph i : this.paragraphs)
+        for (Element element: elements)
         {
-            i.print();
+            element.print();
         }
     }
-    private void printTables(){
-        for(Table i : this.tables)
-        {
-            i.print();
-        }
-    }
-    private void printImages(){
-        for(Image i: images)
-        {
-            i.print();
-        }
-    }
-
-
-
-
-
-
-
-
-
 }

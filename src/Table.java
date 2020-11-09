@@ -1,12 +1,12 @@
-public class Table {
+public class Table implements Element {
+    private String title;
 
-    private String name;
-
-    Table(String name) {
-        this.name = name;
+    public void print()
+    {
+        System.out.println("Table with title: " + this.title);
     }
 
-    public void print() {
-        System.out.println("Table with name: " + this.name);
+    public Table(String title) {
+        this.title = title;
     }
 }
