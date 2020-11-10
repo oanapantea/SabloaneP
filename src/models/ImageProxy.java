@@ -1,3 +1,5 @@
+package models;
+
 import java.awt.*;
 
 public class ImageProxy implements Element {
@@ -5,7 +7,7 @@ public class ImageProxy implements Element {
     public Dimension dim;
     private Image realImage;
 
-    ImageProxy(String url){
+    public ImageProxy(String url){
         this.url = url;
     }
 
@@ -21,4 +23,8 @@ public class ImageProxy implements Element {
         realImage.print();
     }
 
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

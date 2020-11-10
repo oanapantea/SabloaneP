@@ -1,8 +1,8 @@
-import models.Element;
+package models;
 
 import java.util.ArrayList;
 
-public class Section implements Element {
+public class Section implements Element{
     private String sectionTitle;
     ArrayList<Element> elements = new ArrayList<>();
 
@@ -24,7 +24,8 @@ public class Section implements Element {
         elements.remove(element);
     }
 
-    public Element getElement(int index){
+    public Element getElement(int index)
+    {
         return elements.get(index);
     }
 
@@ -36,6 +37,14 @@ public class Section implements Element {
         }
     }
 
+    public void accept(Visitor visitor){
 
+        visitor.visit(this);
+
+        for(Element elem: elements){
+            elem.accept(visitor);
+        }
+
+    }
 
 }

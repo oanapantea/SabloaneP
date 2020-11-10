@@ -1,3 +1,5 @@
+package models;
+
 import java.util.ArrayList;
 
 public class Book implements Element {
@@ -32,6 +34,11 @@ public class Book implements Element {
             e.print();
         }
 
+
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
 
     }
 }

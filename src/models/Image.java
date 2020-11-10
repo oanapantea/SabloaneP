@@ -1,13 +1,15 @@
+package models;
+
 import java.util.concurrent.TimeUnit;
 
 public class Image implements Element {
     private String imageName;
     private long time;
-    Image(String name) {
+    public Image(String name) {
         time = System.currentTimeMillis();
         imageName = name;
         try {
-            System.out.println("Image is being delayed: \n");
+            System.out.println("models.Image is being delayed: \n");
             TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -15,7 +17,11 @@ public class Image implements Element {
     }
     public void print()
     {
-        System.out.println("Image with name: " + this.imageName);
+        System.out.println("models.Image with name: " + this.imageName);
     }
 
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }
