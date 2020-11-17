@@ -4,9 +4,10 @@ import java.util.ArrayList;
 
 public class Book implements Element {
     private String title;
-    private ArrayList<Author> authors = new ArrayList<Author>();
+    private ArrayList<Author> authors = new ArrayList<>();
     private TableOfContents tableOfContents;
     private ArrayList<Element> elements = new ArrayList<>();
+
 
 
     public Book(String title) {
@@ -39,6 +40,11 @@ public class Book implements Element {
 
     @Override
     public void accept(Visitor visitor) {
+        visitor.visit(this);
+        for(Element elem: elements) {
+            elem.accept(visitor);
+        }
 
     }
+
 }

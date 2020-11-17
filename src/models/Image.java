@@ -9,7 +9,7 @@ public class Image implements Element {
         time = System.currentTimeMillis();
         imageName = name;
         try {
-            System.out.println("models.Image is being delayed: \n");
+            //System.out.println("models.Image is being delayed: \n");
             TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -17,7 +17,9 @@ public class Image implements Element {
     }
     public void print()
     {
-        System.out.println("models.Image with name: " + this.imageName);
+       //System.out.println("models.Image with name: " + this.imageName);
+        System.out.println(this.imageName);
+
     }
 
     @Override

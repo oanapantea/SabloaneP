@@ -1,28 +1,22 @@
 import models.*;
-import services.AlignCenter;
-import services.AlignLeft;
-import services.AlignRight;
-import services.BookStatistics;
 
 public class TestMain {
 
-    public static void main(String[] args) throws Exception {
-        Section cap1 = new Section("Capitolul 1");
-        Paragraph p1 = new Paragraph("models.Paragraph 1");
-        cap1.add(p1);
-        Paragraph p2 = new Paragraph("models.Paragraph 2");
-        cap1.add(p2);
-        Paragraph p3 = new Paragraph("models.Paragraph 3");
-        cap1.add(p3);
-        Paragraph p4 = new Paragraph("models.Paragraph 4");
-        cap1.add(p4);
+    public static void main(String[] args){
+        //create new book to open
 
-        cap1.add(new ImageProxy("ImageOne"));
-        cap1.add(new Image("ImageTwo"));
-        cap1.add(new Paragraph("Some text"));
-        cap1.add(new Table("Table 1"));
-        BookStatistics stats = new BookStatistics();
-        cap1.accept(stats);
-        stats.print();
+
+        //lab
+        Command cmd1 = new OpenCommand();
+        cmd1.execute();
+        Command cmd2 = new StatisticsCommand();
+        cmd2.execute();
+
+        System.out.println();
+        System.out.println("Book info:");
+        if(DocumentManager.getInstance().getBook() != null)
+            DocumentManager.getInstance().getBook().print();
+        else
+            System.out.println("No book info.");
     }
 }

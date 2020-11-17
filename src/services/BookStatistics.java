@@ -36,6 +36,11 @@ public class BookStatistics  implements Visitor {
         tablesC++;
     }
 
+    @Override
+    public void visit(Book book) {
+
+    }
+
     public void print(){
         System.out.println("Book Statistics:");
         System.out.println("***Number of images: " + imageC);

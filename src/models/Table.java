@@ -5,7 +5,8 @@ public class Table implements Element {
 
     public void print()
     {
-        System.out.println("models.Table with title: " + this.title);
+        //System.out.println("models.Table with title: " + this.title);
+        System.out.println(this.title);
     }
 
     public Table(String title) {
