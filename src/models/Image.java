@@ -1,10 +1,14 @@
 package models;
 
+import java.util.Vector;
 import java.util.concurrent.TimeUnit;
 
 public class Image implements Element {
     private String imageName;
     private long time;
+    String value,oldValue;
+    Vector<Observer> observers = new Vector<Observer>();
+
     public Image(String name) {
         time = System.currentTimeMillis();
         imageName = name;
@@ -25,5 +29,26 @@ public class Image implements Element {
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
+    }
+
+    @Override
+    public void setNewValue(String newValue) {
+        this.oldValue=this.value;
+        this.value=newValue;
+        System.out.println("Image: A fost inlocuita valoarea "+ oldValue +" cu "+newValue);
+    }
+
+    public void addObserver(Observer obs) {
+        observers.add(obs);
+        System.out.println("Image: A fost adaugat "+obs);
+    }
+
+    public void removeObserver(Observer obs) {
+        observers.removeElement(obs);
+        System.out.println("Image: A fost sters " + obs);
+
+    }
+    public void notifyObservers(){
+        System.out.println("Notificare Image");
     }
 }

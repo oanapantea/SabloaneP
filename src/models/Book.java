@@ -47,4 +47,9 @@ public class Book implements Element {
 
     }
 
+    @Override
+    public void setNewValue(String newValue) {
+
+    }
+
 }
